@@ -1,0 +1,28 @@
+PROJECTS = ['util','general'] 
+
+pwd = Dir.pwd
+
+desc "Preparing  Project"
+task :prepare do
+	Dir.chdir("util")
+	sh "rake compile"
+	Dir.chdir(pwd)
+end
+
+desc "Compile All Projects"
+task :compile_all do |project|
+	PROJECTS.each do |project|
+		Dir.chdir(project)
+		sh "rake compile"
+		Dir.chdir(pwd)
+	end
+end
+
+desc "Cleaning All Projects"
+task :clean_all do
+	PROJECTS.each do |project|
+		Dir.chdir(project)
+		sh "rake clobber"
+		Dir.chdir(pwd)
+	end
+end
