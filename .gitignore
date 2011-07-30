@@ -1,0 +1,4 @@
+*.swp
+.~
+thumbs.db
+*.o
